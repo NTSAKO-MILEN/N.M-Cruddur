@@ -76,3 +76,92 @@ Choose Frontend Framework	                                Build an interactive, 
 
 Initialize Repositories                                  	Organize code cleanly and support scalable development
 ```
+
+#### NB- For this project, I will be working with GitPod. GitPod operates in a cloud-based Linux container with tools either preinstalled or easily installable via the Dockerfile or initialization script.
+
+### Step 1: Organize Project Folder
+##### Organization of our monorepo 
+```
+cruddur/
+├── backend/
+│   └── (Node.js or Python API code)
+├── frontend/
+│   └── (React or Vue app)
+├── .gitpod.yml
+├── .gitpod.Dockerfile
+├── docker-compose.yml
+└── README.md
+```
+
+## 📁 .gitpod.yml
+Tells Gitpod how to initialize and start your project:
+```
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: Install & Start
+    init: |
+      cd backend && npm install || pip install -r requirements.txt
+      cd ../frontend && npm install
+    command: |
+      docker-compose up
+```
+## 📁 .gitpod.Dockerfile
+Installs Docker, AWS CLI, CDK, Node.js, and Python tools:
+```
+FROM gitpod/workspace-full
+
+# Node.js
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs
+
+# Python
+RUN apt-get install -y python3 python3-pip
+
+# AWS CLI
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && sudo ./aws/install
+
+# AWS CDK
+RUN npm install -g aws-cdk
+
+# Docker & Compose
+RUN apt-get update && apt-get install -y docker.io docker-compose
+```
+
+## 📁 docker-compose.yml
+Sample config to run frontend and backend together:
+```
+version: "3.8"
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app
+    command: npm start # or python app.py
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+    command: npm run dev
+```
+| N.B Make sure you add Dockerfile and package.json or requirements.txt to both frontend/ and backend/.
+
+### ✅ Step 2: Push to GitHub and Launch in Gitpod
+
+# Push your repo to GitHub.
+Open it in Gitpod via:
+```
+bash
+Copy
+Edit
+https://gitpod.io/#https://github.com/your-username/cruddur
+```
+
+
