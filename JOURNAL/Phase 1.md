@@ -53,13 +53,13 @@
 
 **What i will do**:
 
-Initialize with your chosen language (Node.js or Python).
+-- Initialize with your chosen language (Node.js or Python).
 
-Set up endpoints for CRUD operations.
+-- Set up endpoints for CRUD operations.
 
-Connect to a database (like PostgreSQL or DynamoDB).
+-- Connect to a database (like PostgreSQL or DynamoDB).
 
-Add authentication and business logic.
+-- Add authentication and business logic.
 
 
 ## Summary of Why Each Step Matters
