@@ -1,1 +1,1 @@
-console.log("Hello, Frontend!");
+console.log("Hello, Ntsako-Milen! welcome to Cruddur");
