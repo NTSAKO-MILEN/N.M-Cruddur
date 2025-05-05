@@ -1,0 +1,10 @@
+version: 1.0
+
+tasks:
+  - name: Backend Setup
+    init: pip install -r backend/requirements.txt
+    command: python backend/app/main.py
+
+  - name: Frontend Setup
+    init: npm install --prefix frontend
+    command: npm start --prefix frontend
