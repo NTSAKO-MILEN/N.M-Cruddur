@@ -3,9 +3,10 @@ services:
   backend:
     build: ./backend
     ports:
-      - "5000:5000"
+      - "8000:8000"  # Use the port your Python app actually runs on
     volumes:
       - ./backend:/app
+    command: python app/main.py  # Explicitly run your backend app
 
   frontend:
     build: ./frontend
@@ -13,3 +14,4 @@ services:
       - "3000:3000"
     volumes:
       - ./frontend:/app
+    command: npm start  # Start the frontend app
