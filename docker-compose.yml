@@ -3,7 +3,7 @@ services:
   backend:
     build: ./backend
     ports:
-      - "8000:8000"  # Use the port your Python app actually runs on
+      - "5000:5000"  # Use the port your Python app actually runs on
     volumes:
       - ./backend:/app
     command: python app/main.py  # Explicitly run your backend app
