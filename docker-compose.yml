@@ -1,17 +1,17 @@
-version: '3'
-services:
-  backend:
-    build: ./backend
-    ports:
-      - "5000:5000"  # Use the port your Python app actually runs on
-    volumes:
-      - ./backend:/app
-    command: python app/main.py  # Explicitly run your backend app
+// frontend/src/main.js
+const express = require('express');
+const path = require('path');
 
-  frontend:
-    build: ./frontend
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./frontend:/app
-    command: npm start  # Start the frontend app
+const app = express();
+const PORT = 3000;
+
+// Serve static files from public folder (or adjust as needed)
+app.use(express.static(path.join(__dirname, '..', 'public')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+});
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Frontend is running on http://localhost:${PORT}`);
+});
