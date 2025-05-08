@@ -1,4 +1,4 @@
-version: 1
+# gitpod.yml
 
 tasks:
   - init: pip install -r backend/requirements.txt
