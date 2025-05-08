@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-// Serve static files (like index.html, bundle.js, etc.)
+// Serve static files from public folder (or adjust as needed)
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.get('*', (req, res) => {
@@ -13,5 +13,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Frontend server is running on http://localhost:${PORT}`);
+  console.log(`Frontend is running on http://localhost:${PORT}`);
 });
