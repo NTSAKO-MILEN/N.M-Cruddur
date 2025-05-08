@@ -3,15 +3,16 @@
     "version": "1.0.0",
     "description": "Cruddur frontend application",
     "scripts": {
-      "start": "node src/main.js",
-      "build": "echo 'Building frontend...'",
-      "test": "echo 'Running tests...'"
+        "start": "node src/main.js",
+        "build": "echo 'Building frontend...'",
+        "test": "echo 'Running tests...'"
     },
     "dependencies": {
-      "react": "^18.0.0",
-      "react-dom": "^18.0.0"
+        "express": "^5.1.0",
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0"
     },
     "devDependencies": {
-      "eslint": "^8.0.0"
+        "eslint": "^8.0.0"
     }
-  }
+}
