@@ -1,5 +1,5 @@
 
-# Phase 1 — App Containerization (Personalized for Ntsako Mabunda)
+# Phase 1 — App Containerization 
 
 Welcome to my phase 1 journey of containerizing a full-stack application using Docker. As someone transitioning into cloud security with a background in biomedical sciences, this is part of my hands-on learning aligned with [Andrew Brown's AWS Bootcamp](https://github.com/andrewbrown/aws-bootcamp-cruddur-2023). I'm documenting everything in a clear, beginner-friendly way for myself and others who are new to DevOps, containers, or full-stack projects.
 
