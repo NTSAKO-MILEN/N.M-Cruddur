@@ -7,3 +7,29 @@ services:
     volumes:
       - ./frontend:/app
     command: npm start
+    
+
+    version: '3.8'
+
+services:
+  db:
+    image: postgres:13-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    ports:
+      - '5432:5432'
+    volumes:
+      - db:/var/lib/postgresql/data
+
+  dynamodb:
+    image: amazon/dynamodb-local
+    container_name: dynamodb_local
+    ports:
+      - '8000:8000'
+    command: "-jar DynamoDBLocal.jar -inMemory -sharedDb"
+
+volumes:
+  db:
+    driver: local
